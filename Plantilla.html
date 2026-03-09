@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plantilla Completa | Red Devils</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
+    
+    <style>
+        /* --- ESTILOS MODERNOS (Idénticos a la página principal) --- */
+        :root {
+            --primary: #D90429;
+            --primary-dark: #8D0801;
+            --bg-dark: #0f1014;
+            --bg-card: #1b1e26;
+            --text-main: #ffffff;
+            --text-secondary: #a0a0a0;
+            --gradient: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            --shadow: 0 10px 30px -10px rgba(217, 4, 41, 0.3);
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            line-height: 1.6;
+            padding-bottom: 40px;
+        }
+
+        /* --- HEADER SIMPLIFICADO --- */
+        header {
+            background: linear-gradient(to right, #000, var(--primary-dark));
+            color: var(--text-main);
+            padding: 2rem 0;
+            text-align: center;
+            margin-bottom: 40px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+        }
+
+        header h1 {
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 2rem;
+        }
+
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+
+        /* --- TÍTULOS DE CATEGORÍA --- */
+        .category-title {
+            color: var(--primary);
+            font-size: 1.8rem;
+            margin: 40px 0 20px 0;
+            padding-left: 15px;
+            border-left: 5px solid var(--primary);
+            text-transform: uppercase;
+            font-weight: 700;
+        }
+
+        /* --- GRID Y TARJETAS --- */
+        .grid-jugadores {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); /* Adaptable */
+            gap: 25px;
+            margin-bottom: 50px;
+        }
+
+        .carta-jugador {
+            background: var(--bg-card);
+            border-radius: 15px;
+            overflow: hidden;
+            position: relative;
+            transition: transform 0.4s ease;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+            border: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .carta-jugador:hover { transform: translateY(-10px); }
+
+        /* Contenedor de imagen para efecto zoom */
+        .img-container {
+            height: 240px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .carta-jugador img { 
+            width: 100%; 
+            height: 100%; 
+            object-fit: cover; 
+            transition: transform 0.5s ease;
+        }
+
+        .carta-jugador:hover img { transform: scale(1.08); }
+
+        .info-jugador { padding: 20px; position: relative; }
+
+        .dorsal { 
+            position: absolute;
+            top: -20px;
+            right: 15px;
+            background: var(--gradient); 
+            color: white; 
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%; 
+            font-weight: 800;
+            font-size: 1rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            z-index: 10;
+        }
+
+        .info-jugador h3 { 
+            font-size: 1.1rem; 
+            margin-bottom: 5px; 
+            font-weight: 600;
+        }
+        
+        .info-jugador p { 
+            color: var(--text-secondary); 
+            font-size: 0.85rem; 
+            text-transform: uppercase; 
+            letter-spacing: 1px;
+        }
+
+        /* --- BOTÓN DE VOLVER --- */
+        .footer-action {
+            text-align: center;
+            margin-top: 60px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .btn-volver {
+            display: inline-block;
+            padding: 12px 35px;
+            background: transparent;
+            border: 2px solid var(--text-secondary);
+            color: var(--text-secondary);
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .btn-volver:hover { 
+            border-color: var(--primary);
+            color: var(--primary);
+            background: rgba(217, 4, 41, 0.05);
+        }
+
+        /* --- RESPONSIVE --- */
+        @media (max-width: 768px) {
+            header h1 { font-size: 1.5rem; }
+            .grid-jugadores { grid-template-columns: repeat(2, 1fr); gap: 15px; }
+            .img-container { height: 200px; }
+        }
+        @media (max-width: 480px) {
+            .grid-jugadores { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <h1>Plantilla Oficial 25/26</h1>
+            <p style="color: #bbb; font-size: 0.9rem; margin-top: 5px;">Red Devils FC</p>
+        </div>
+    </header>
+
+    <div class="container">
+        
+        <h2 class="category-title">Porteros</h2>
+        <div class="grid-jugadores">
+            <div class="carta-jugador">
+                <div class="img-container">
+                    <img src="LaBola.jpg" alt="La Bola">
+                </div>
+                <div class="info-jugador">
+                    <span class="dorsal">1</span>
+                    <h3>La Bola</h3>
+                    <p>Portero</p>
+                </div>
+            </div>
+            <div class="carta-jugador">
+                <div class="img-container">
+                    <img src="Laola.jpg" alt="Alexis Martinez">
+                </div>
+                <div class="info-jugador">
+                    <span class="dorsal">99</span>
+                    <h3>Alexis Martinez</h3>
+                    <p>Portero</p>
+                </div>
+            </div>
+        </div>
+
+        <h2 class="category-title">Defensas</h2>
+        <div class="grid-jugadores">
+            <div class="carta-jugador">
+                <div class="img-container">
+                    <img src="Sebastian_tarjeta.jpg" alt="Sebastian">
+                </div>
+                <div class="info-jugador">
+                    <span class="dorsal">8</span>
+                    <h3>Sebastian Gonzalez</h3>
+                    <p>Defensa Central</p>
+                </div>
+            </div>
+            <div class="carta-jugador">
+                <div class="img-container">
+                    <img src="Chute.jpg" alt="Chute">
+                </div>
+                <div class="info-jugador">
+                    <span class="dorsal">6</span>
+                    <h3>Jesus ¨Chute¨</h3>
+                    <p>Defensa central</p>
+                </div>
+            </div>
+            <div class="carta-jugador">
+                <div class="img-container">
+                    <img src="Aldo.jpg" alt="Aldo">
+                </div>
+                <div class="info-jugador">
+                    <span class="dorsal">2</span>
+                    <h3>Aldo</h3>
+                    <p>Defensa Central</p>
+                </div>
+            </div>
+        </div>
+
+        <h2 class="category-title">Atacantes</h2>
+        <div class="grid-jugadores">
+            <div class="carta-jugador">
+                <div class="img-container">
+                    <img src="Chago_tarjeta.jpg" alt="Chago">
+                </div>
+                <div class="info-jugador">
+                    <span class="dorsal">10</span>
+                    <h3>Jesus Santiago</h3>
+                    <p>Media Punta</p>
+                </div>
+            </div>
+            <div class="carta-jugador">
+                <div class="img-container">
+                    <img src="neymar_Tarjeta.jpg" alt="Neymar">
+                </div>
+                <div class="info-jugador">
+                    <span class="dorsal">14</span>
+                    <h3>Neymar Garcia</h3>
+                    <p>Extremo</p>
+                </div>
+            </div>
+            <div class="carta-jugador">
+                <div class="img-container">
+                    <img src="Pepe.jpg" alt="CR7">
+                </div>
+                <div class="info-jugador">
+                    <span class="dorsal">7</span>
+                    <h3>Victor Cavazos</h3>
+                    <p>Delantero</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-action">
+            <p style="margin-bottom: 20px; color: var(--text-secondary);">¿Falta alguien? Contáctanos para actualizar la ficha.</p>
+            <a href="#" onclick="window.close();" class="btn-volver">Cerrar Pestaña</a>
+        </div>
+
+    </div>
+
+</body>
+</html>
